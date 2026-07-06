@@ -1,0 +1,313 @@
+/* ==========================================================================
+   1. BASE DESKTOP STYLES (Tampilan Utama Laptop / PC)
+   ========================================================================== */
+
+.location-container {
+    padding-top: 65px; /* Menyesuaikan tinggi navbar sticky */
+    display: flex;
+    height: calc(100vh - 65px); /* Memenuhi sisa tinggi layar monitor */
+    overflow: hidden; /* Mencegah double scrollbar di desktop */
+}
+
+/* Kolom Kiri (Sidebar) */
+.location-sidebar {
+    width: 400px;
+    min-width: 350px;
+    background-color: #ffffff;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.sidebar-header {
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-header h2 {
+    color: #1b5e20;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-header p {
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+}
+
+/* Kotak Pencarian */
+.search-box {
+    display: flex;
+    background-color: #f1f3f4;
+    border-radius: 30px;
+    padding: 5px 5px 5px 15px;
+    align-items: center;
+    border: 1px solid transparent;
+    transition: border 0.3s;
+}
+
+.search-box:focus-within {
+    border-color: #2e7d32;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(46, 125, 50, 0.15);
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.btn-search {
+    background-color: #2e7d32;
+    border: none;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Daftar Kartu Alamat */
+.location-list {
+    flex: 1;
+    overflow-y: auto; /* Scroll internal hanya di area list */
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.location-card {
+    background-color: #f8f9fa;
+    border: 2px solid #eee;
+    padding: 1.25rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.location-card:hover {
+    border-color: #2e7d32;
+    background-color: #f0f7f4;
+}
+
+.location-card.active {
+    border-color: #2e7d32;
+    background-color: #e8f5e9;
+}
+
+.card-status {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #2e7d32;
+    background-color: #e8f5e9;
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-bottom: 0.7rem;
+}
+
+.location-card.tutup .card-status {
+    color: #d32f2f;
+    background-color: #ffebee;
+}
+
+.location-card h3 {
+    font-size: 1.05rem;
+    color: #333;
+    margin-bottom: 0.4rem;
+}
+
+.location-card p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.btn-direction {
+    text-decoration: none;
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+/* Kolom Kanan (Peta Mockup) */
+.location-map-area {
+    flex: 1;
+    position: relative;
+    background-color: #e5e3df;
+}
+
+.mockup-map {
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px);
+    background-size: 40px 40px;
+    position: relative;
+}
+
+/* Pin-Pin di Peta */
+.map-pin {
+    position: absolute;
+    background-color: white;
+    padding: 8px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.map-pin.active {
+    background-color: #2e7d32;
+    border: 2px solid white;
+}
+
+.pin-pulse {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 50%;
+    border: 2px solid #2e7d32;
+    animation: pulse 2s infinite ease-out;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
+.pin-1 { top: 35%; left: 45%; }
+.pin-2 { top: 55%; left: 65%; }
+.user-location { 
+    top: 50%; left: 30%; 
+    background-color: #108ee9; 
+    color: white; 
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 5px 12px;
+}
+
+.map-overlay-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 300px;
+    pointer-events: none;
+}
+
+.map-overlay-info h4 { color: #1b5e20; margin-bottom: 0.2rem; font-size: 0.95rem;}
+.map-overlay-info p { color: #666; font-size: 0.8rem; }
+
+
+/* ==========================================================================
+   2. MEDIA QUERY RESPONSIVE (Khusus Layar Tablet / HP)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .location-container {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        min-height: calc(100vh - 65px) !important; /* Memastikan ruang utama cukup panjang */
+        overflow: visible !important;
+        padding-top: 75px !important;
+    }
+
+    .location-sidebar {
+        width: 100% !important;
+        min-width: 100% !important;
+        height: auto !important;
+        flex: none !important; /* Mencegah sidebar menekan elemen peta */
+        box-shadow: none !important;
+        border-bottom: 1px solid #eee !important;
+    }
+
+    .sidebar-header {
+        padding: 1.5rem 1rem !important;
+    }
+
+    .location-list {
+        overflow-y: visible !important;
+        max-height: none !important; 
+        padding: 1rem !important;
+        gap: 1rem !important;
+    }
+
+    .location-card {
+        padding: 1rem !important;
+    }
+
+    /* FIX MAP AREA: Dipaksa merentang setinggi 350px dan memblokir ruang di atas footer */
+    .location-map-area {
+        display: block !important;
+        width: 100% !important;
+        height: 350px !important; 
+        min-height: 350px !important; /* Kunci tinggi minimum agar tidak kolaps/hilang */
+        position: relative !important;
+        margin-top: 1.5rem !important;
+        margin-bottom: 0 !important;
+        flex: none !important;
+    }
+
+    .mockup-map {
+        height: 100% !important;
+        width: 100% !important;
+        background-color: #e5e3df !important; /* Warna map dasar sebagai cadangan */
+    }
+
+    /* Reposisi letak pin agar pas di layar HP */
+    .pin-1 { top: 25% !important; left: 45% !important; }
+    .pin-2 { top: 55% !important; left: 65% !important; }
+    .user-location { top: 45% !important; left: 15% !important; }
+    
+    .map-overlay-info {
+        bottom: 10px !important;
+        left: 10px !important;
+        right: 10px !important;
+        max-width: calc(100% - 20px) !important;
+        padding: 0.75rem 1rem !important;
+    }
+}
+
+/* --- FIX TOTAL FOOTER TABRAKAN DI HP & DESKTOP --- */
+footer {
+    position: relative !important;
+    bottom: auto !important;
+    width: 100% !important;
+    clear: both !important;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    /* Memastikan body utama bisa memanjang ke bawah dan memberikan ruang untuk footer */
+    body {
+        height: auto !important;
+        overflow-y: auto !important;
+    }
+}

@@ -1,0 +1,185 @@
+/* --- CONTAINER UTAMA --- */
+.about-container {
+    padding: clamp(6rem, 10vh, 8rem) 8% 4rem 8%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- SECTION 1: HERO VISI MISI --- */
+.about-hero {
+    background-color: #f0f7f4;
+    padding: clamp(2rem, 4vw, 3.5rem);
+    border-radius: 30px;
+    margin-bottom: 5rem;
+    border-left: 6px solid #2e7d32;
+}
+
+.section-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #2e7d32;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+}
+
+.about-hero h2 {
+    color: #1b5e20;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.about-hero p {
+    color: #444;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 900px;
+}
+
+/* Kotak Visi Misi Dua Kolom */
+.mission-boxes {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.m-box {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 1.75rem;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.m-box h4 {
+    color: #2e7d32;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.m-box p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* --- SECTION 2: GRID TIM MAHASISWA --- */
+.team-section {
+    margin-bottom: 2rem;
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.team-header h2 {
+    color: #1b5e20;
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    margin-bottom: 0.5rem;
+}
+
+.team-header p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Grid Menggunakan Auto-Fit agar Otomatis Responsif */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Desain Kartu Identitas Anggota */
+.team-card {
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(46, 125, 50, 0.08);
+    border-color: #2e7d32;
+}
+
+/* Lingkaran Foto/Avatar */
+.avatar-wrapper {
+    width: 90px;
+    height: 90px;
+    background-color: #e8f5e9;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #2e7d32;
+}
+
+.avatar-placeholder {
+    font-size: 2.5rem;
+}
+
+.team-card h3 {
+    font-size: 1.15rem;
+    color: #333;
+    margin-bottom: 0.3rem;
+}
+
+.team-card .role {
+    font-size: 0.85rem;
+    color: #2e7d32;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    min-height: 40px; /* Menjaga teks peran 2 baris tetap sejajar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-card .nim {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: #888;
+    background-color: #f1f3f4;
+    padding: 3px 12px;
+    border-radius: 10px;
+    font-family: monospace;
+}
+
+/* --- REKAYASA FOOTER --- */
+.about-footer {
+    position: relative !important;
+    bottom: auto !important;
+    width: 100% !important;
+    margin-top: 4rem;
+}
+
+/* --- ADJUSTMENT MEDIA QUERY (MOBILE & TABLET) --- */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 6.5rem 5% 2rem 5%;
+    }
+
+    .about-hero {
+        padding: 2rem 1.5rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .mission-boxes {
+        flex-direction: column; /* Kotak Visi & Misi bertumpuk vertikal di HP */
+        gap: 1rem;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}

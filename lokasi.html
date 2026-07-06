@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokasi Drop Point - TrashToCoin</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Hubungkan ke CSS utama + CSS khusus halaman ini -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lokasi.css">
+</head>
+<body>
+
+    <!-- Placeholder Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- MAIN CONTAINER LOKASI -->
+    <main class="location-container">
+        
+        <!-- Kolom Kiri: Search & List Lokasi -->
+        <section class="location-sidebar">
+            <div class="sidebar-header">
+                <h2>Cari Drop Point</h2>
+                <p>Temukan lokasi penukaran sampah terdekat untuk menyetor dan scan koinmu.</p>
+                
+                <!-- Input Cari (Mockup) -->
+                <div class="search-box">
+                    <input type="text" placeholder="Masukkan kota atau kecamatanmu..." value="Kecamatan Sukamaju">
+                    <button class="btn-search">🔍</button>
+                </div>
+            </div>
+
+            <!-- Daftar Kartu Alamat -->
+            <div class="location-list">
+                <!-- Kartu 1 (Active/Dipilih) -->
+                <div class="location-card active">
+                    <div class="card-status">Buka • 08.00 - 17.00</div>
+                    <h3>Drop Point Utama Sektor 1</h3>
+                    <p>📍 Jl. Merdeka No. 45, Komplek Balai Warga (Depan Pos Satpam)</p>
+                    <div class="card-meta">
+                        <span>Distance: <strong>1.2 Km</strong></span>
+                        <a href="#" class="btn-direction">Rute ↗</a>
+                    </div>
+                </div>
+
+                <!-- Kartu 2 -->
+                <div class="location-card">
+                    <div class="card-status">Buka • 08.00 - 17.00</div>
+                    <h3>Drop Point Sektor 2 (Balai RW 05)</h3>
+                    <p>📍 Jl. Kenanga Raya No. 12, RT 03/RW 05, Kel. Sukamaju</p>
+                    <div class="card-meta">
+                        <span>Distance: <strong>2.8 Km</strong></span>
+                        <a href="#" class="btn-direction">Rute ↗</a>
+                    </div>
+                </div>
+
+                <!-- Kartu 3 -->
+                <div class="location-card tutup">
+                    <div class="card-status">Tutup • Buka Besok</div>
+                    <h3>Drop Point Mini - Indomaret Sejahtera</h3>
+                    <p>📍 Area Parkir Indomaret, Jl. Pemuda No. 89</p>
+                    <div class="card-meta">
+                        <span>Distance: <strong>4.1 Km</strong></span>
+                        <a href="#" class="btn-direction">Rute ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kolom Kanan: Visualisasi Maps -->
+        <section class="location-map-area">
+            <!-- Mockup Map UI menggunakan CSS Kreatif -->
+            <div class="mockup-map">
+                <!-- Ornamen simulasi GPS pin -->
+                <div class="map-pin pin-1 active">
+                    <div class="pin-pulse"></div>
+                    ♻️
+                </div>
+                <div class="map-pin pin-2">♻️</div>
+                <div class="map-pin user-location">📍 Kamu</div>
+                
+                <!-- Keterangan mengambang di atas peta -->
+                <div class="map-overlay-info">
+                    <h4>Peta Distribusi Drop Point</h4>
+                    <p>Menampilkan 3 lokasi aktif di sekitar koordinat Anda.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 TrashToCoin -Project PKN. All Rights Reserved.</p>
+    </footer>
+
+    <!-- SCRIPT NAVBAR -->
+    <script>
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                
+                const currentPage = window.location.pathname.split("/").pop() || "index.html";
+                const navLinks = document.querySelectorAll('.nav-links a');
+                navLinks.forEach(link => {
+                    if(link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                    }
+                });
+
+                const hamburger = document.getElementById('hamburger-btn');
+                const navMenu = document.getElementById('nav-menu');
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            })
+            .catch(error => console.error('Gagal memuat navbar:', error));
+    </script>
+</body>
+</html>

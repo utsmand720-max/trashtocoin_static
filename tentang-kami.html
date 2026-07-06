@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - TrashToCoin</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="about-container">
+        
+        <section class="about-hero">
+            <div class="hero-text">
+                <span class="section-tag">TrashToCoin</span>
+                <h2>Mengubah Limbah Menjadi Berkah Finansial</h2>
+                <p><strong>TrashToCoin</strong> lahir sebagai wujud aksi nyata mahasiswa dalam memenuhi tanggung jawab sebagai warga negara yang cerdas dan peduli lingkungan (*civic engagement*). Kami percaya bahwa masalah sampah tidak bisa diselesaikan hanya dengan slogan, melainkan harus lewat stimulus ekonomi sirkular yang inklusif.</p>
+                
+                <div class="mission-boxes">
+                    <div class="m-box">
+                        <h4>🌱 Misi Lingkungan</h4>
+                        <p>Mengurangi volume sampah yang berakhir di TPA dengan mengedukasi warga memilah sampah dari rumah.</p>
+                    </div>
+                    <div class="m-box">
+                        <h4>🪙 Misi Ekonomi</h4>
+                        <p>Meningkatkan kesejahteraan sosial dengan memberikan apresiasi instan berupa koin digital yang bernilai rupiah.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+ 
+
+    </main>
+
+    <footer class="about-footer">
+        <p>&copy; 2026 TrashToCoin -  Project PKN. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                
+                const currentPage = window.location.pathname.split("/").pop() || "index.html";
+                const navLinks = document.querySelectorAll('.nav-links a');
+                navLinks.forEach(link => {
+                    if(link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                    }
+                });
+
+                const hamburger = document.getElementById('hamburger-btn');
+                const navMenu = document.getElementById('nav-menu');
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            })
+            .catch(error => console.error('Gagal memuat navbar:', error));
+    </script>
+</body>
+</html>

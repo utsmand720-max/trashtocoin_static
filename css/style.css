@@ -1,0 +1,662 @@
+/* --- RESET & BASE STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    font-size: 16px; 
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- NAVBAR STYLES (STICKY) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1.25rem 8%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2e7d32;
+}
+
+.logo span {
+    color: #fbc02d;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #2e7d32;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #2e7d32;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* --- HERO SECTION (OPTIMIZED) --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8rem 8% 4rem 8%;
+    background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);
+    min-height: 90vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: 5%;
+    z-index: 2; /* Supaya teks di HP tetap berada di atas background hitam */
+}
+
+.hero-text h1 {
+    font-size: clamp(2.2rem, 4vw, 3.2rem); 
+    color: #1b5e20;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s;
+}
+
+.hero-text p {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    color: #555;
+    margin-bottom: 2rem;
+    transition: color 0.3s;
+}
+
+.btn-main {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn-main:hover {
+    background-color: #1b5e20;
+    transform: translateY(-3px);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Pengaturan Gambar Utama Desktop */
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px; /* Opsional: biar sudut gambarmu melengkung rapi */
+}
+
+/* --- SECTION EDUKASI & VISI (NEW MODERN LOOK) --- */
+.education {
+    padding: 6rem 8%;
+    background-color: #ffffff;
+}
+
+.edu-wrapper {
+    display: flex;
+    gap: 4rem;
+    align-items: center; /* Menyeimbangkan posisi vertikal kiri dan kanan */
+}
+
+/* Kolom Kiri */
+.edu-left {
+    flex: 1;
+}
+
+.edu-left h2 {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: #1b5e20;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.edu-accent-text {
+    font-size: 1.1rem;
+    color: #666;
+    border-left: 4px solid #fbc02d; /* Aksen warna emas koin */
+    padding-left: 1rem;
+}
+
+/* Kolom Kanan */
+.edu-right {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.edu-info-card {
+    display: flex;
+    gap: 1.5rem;
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edu-info-card:hover {
+    transform: translateX(5px); /* Efek geser tipis ke kanan saat di-hover */
+    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.08);
+}
+
+.edu-icon-circle {
+    font-size: 2rem;
+    background-color: #e8f5e9;
+    width: 60px;
+    height: 60px;
+    min-width: 60px; /* Mencegah lingkaran gepeng */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edu-card-content h3 {
+    color: #2e7d32;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.edu-card-content p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- ADJUSTMENT RESPONSIVITAS DI MEDIA QUERY --- */
+/* Cari bagian @media (max-width: 968px) yang sudah ada di file CSS-mu, 
+   lalu hapus baris (.edu-container { flex-direction: column; }) yang lama, 
+   ganti dengan kode di bawah ini: */
+
+@media (max-width: 968px) {
+    /* ... (kode hero yang lama tetap biarkan saja) ... */
+
+    .edu-wrapper {
+        flex-direction: column; /* Menumpuk ke bawah di layar tablet/HP */
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .edu-accent-text {
+        border-left: none;
+        border-top: 3px solid #fbc02d;
+        padding-left: 0;
+        padding-top: 1rem;
+    }
+
+    .edu-info-card {
+        flex-direction: column; /* Di HP ikon berada di atas teks */
+        align-items: center;
+        text-align: center;
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* --- SECTION JENIS SAMPAH --- */
+.waste-types {
+    padding: 5rem 8%;
+    background-color: #f0f7f4; 
+    text-align: center;
+}
+
+.waste-types h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #1b5e20;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.grid-waste {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+.waste-card {
+    background-color: #ffffff;
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.waste-card:hover {
+    transform: translateY(-5px);
+}
+
+.waste-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 5px 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-bottom-left-radius: 15px;
+}
+
+.waste-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.waste-card h3 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 0.8rem;
+}
+
+.waste-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.coin-value {
+    display: inline-block;
+    background-color: #fbc02d;
+    color: #333;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 6px 15px;
+    border-radius: 20px;
+}
+
+/* --- SECTION FEATURES --- */
+.features {
+    padding: 5rem 8%;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.features h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: #1b5e20;
+    margin-bottom: 3rem;
+}
+
+.grid-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 1.5rem;
+}
+
+.step-card {
+    background-color: #f8f9fa;
+    padding: 2.5rem 1.5rem; 
+    border-radius: 15px;
+    transition: transform 0.3s;
+    border-bottom: 4px solid #2e7d32;
+}
+
+.step-card:hover {
+    transform: translateY(-10px);
+}
+
+.icon-box {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.step-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.step-card p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVITAS TOTAL & BREAKPOINTS --- */
+
+@media (max-width: 968px) {
+    /* Ketika di Tablet/HP, Gambar Kanan Hilang & Berubah jadi Background Hero + Overlay Agak Gelap */
+    .hero {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../assets/images/hero-bg.jpg'); /* Silakan sesuaikan nama/jalur gambarmu di sini */
+        text-align: center;
+        padding: 10rem 5% 6rem 5%;
+    }
+
+    .hero-image {
+        display: none; /* Menyembunyikan tag img bawaan desktop */
+    }
+
+    /* Mengubah warna teks teks hero di HP jadi putih agar kontras dengan latar belakang hitam */
+    .hero-text h1 {
+        color: #ffffff;
+    }
+
+    .hero-text p {
+        color: #e0e0e0;
+    }
+
+    /* Edukasi Box berubah susunan ke bawah */
+    .edu-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 65px; 
+        right: -100%; 
+        flex-direction: column;
+        background-color: #ffffff;
+        width: 100%;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 2rem 0;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+        transition: 0.3s ease;
+    }
+
+    .nav-links li {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.5rem 0;
+        font-size: 1.1rem;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* --- HALAMAN TUKAR POIN (NEW SECTION) --- */
+.poin-page {
+    padding: 8rem 8% 4rem 8%;
+    min-height: 90vh;
+}
+
+.poin-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.poin-header h1 {
+    font-size: clamp(2rem, 3.5vw, 2.5rem);
+    color: #1b5e20;
+    margin-bottom: 0.5rem;
+}
+
+.poin-header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.poin-wrapper {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+/* Kolom Kiri: Kalkulator */
+.poin-calc-card {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border-top: 5px solid #2e7d32;
+    position: sticky;
+    top: 100px; /* Ikut melayang saat di-scroll jika di desktop */
+}
+
+.poin-calc-card h3 {
+    color: #333;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.calc-desc {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.calc-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.input-group select, .input-group input {
+    padding: 0.8rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group select:focus, .input-group input:focus {
+    border-color: #2e7d32;
+}
+
+.calc-result-box {
+    background-color: #e8f5e9;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.result-label {
+    font-size: 0.85rem;
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.result-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1b5e20;
+    margin: 0.5rem 0;
+}
+
+.result-note {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+/* Kolom Kanan: Katalog */
+.poin-catalog {
+    flex: 1.5;
+}
+
+.poin-catalog h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.payout-card {
+    background-color: #ffffff;
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    text-align: center;
+    position: relative;
+    border: 1px solid #eee;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.payout-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.payout-badge {
+    background-color: #00c853; /* Warna hijau Gopay default */
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.payout-card h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.payout-cost {
+    font-size: 0.9rem;
+    color: #fbc02d;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.btn-redeem {
+    width: 100%;
+    padding: 0.7rem;
+    background-color: #f8f9fa;
+    color: #2e7d32;
+    border: 2px solid #2e7d32;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-redeem:hover {
+    background-color: #2e7d32;
+    color: white;
+}
+
+@media (max-width: 968px) {
+    /* ... (kode responsive yang sudah ada sebelumnya) ... */
+
+    /* Tambahan baru untuk halaman poin */
+    .poin-wrapper {
+        flex-direction: column; /* Melipat vertikal dari atas ke bawah di HP */
+        align-items: stretch;
+    }
+    
+    .poin-calc-card {
+        position: static; /* Menghilangkan efek melayang sticky agar normal di layar kecil */
+    }
+}

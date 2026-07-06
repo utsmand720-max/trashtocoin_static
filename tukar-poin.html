@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tukar Poin - TrashToCoin</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Hubungkan ke CSS Eksternal -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Placeholder Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- MAIN CONTENT KELOLA POIN -->
+    <main class="poin-page">
+        <div class="poin-header">
+            <h1>Simulasi & Penukaran Koin</h1>
+            <p>Hitung estimasi koin dari sampahmu dan pilih metode pencairan langsung ke saldo e-wallet atau rekening bank.</p>
+        </div>
+
+        <div class="poin-wrapper">
+            <!-- KOLOM KIRI: KALKULATOR INPUT STATIS (MOCKUP) -->
+            <div class="poin-calc-card">
+                <h3>🧮 Kalkulator Estimasi Koin</h3>
+                <p class="calc-desc">Simulasikan berat sampahmu di bawah ini untuk melihat perkiraan koin yang akan kamu dapatkan.</p>
+                
+                <form class="calc-form" onsubmit="return false;">
+                    <div class="input-group">
+                        <label for="waste-select">Pilih Jenis Sampah</label>
+                        <select id="waste-select">
+                            <option value="100">Plastik PET (100 Koin/Kg)</option>
+                            <option value="120">Plastik HDPE (120 Koin/Kg)</option>
+                            <option value="80">Kardus & Karton (80 Koin/Kg)</option>
+                            <option value="70">Kertas & Koran (70 Koin/Kg)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="weight-input">Perkiraan Berat (Kg)</label>
+                        <input type="number" id="weight-input" placeholder="Masukkan berat, misal: 5" min="1" value="1">
+                    </div>
+
+                    <!-- Tampilan Hasil Simulasi -->
+                    <div class="calc-result-box">
+                        <span class="result-label">Estimasi Koin Diperoleh:</span>
+                        <div class="result-value">⭐ <span id="coin-total">100</span> Koin</div>
+                        <p class="result-note">*Hasil sebenarnya akan diverifikasi oleh petugas di Drop Point.</p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- KOLOM KANAN: KATALOG PENUKARAN SALDO -->
+            <div class="poin-catalog">
+                <h3>💰 Pilihan Pencairan Koin</h3>
+                
+                <div class="catalog-grid">
+                    <!-- Kartu Penukaran 1 -->
+                    <div class="payout-card">
+                        <div class="payout-badge">GoPay</div>
+                        <h4>Saldo Rp 10.000</h4>
+                        <p class="payout-cost">Biaya: 1.000 Koin</p>
+                        <button class="btn-redeem">Tukar Koin</button>
+                    </div>
+
+                    <!-- Kartu Penukaran 2 -->
+                    <div class="payout-card">
+                        <div class="payout-badge" style="background-color: #118eea;">Dana</div>
+                        <h4>Saldo Rp 25.000</h4>
+                        <p class="payout-cost">Biaya: 2.500 Koin</p>
+                        <button class="btn-redeem">Tukar Koin</button>
+                    </div>
+
+                    <!-- Kartu Penukaran 3 -->
+                    <div class="payout-card">
+                        <div class="payout-badge" style="background-color: #4d2a86;">OVO</div>
+                        <h4>Saldo Rp 50.000</h4>
+                        <p class="payout-cost">Biaya: 5.000 Koin</p>
+                        <button class="btn-redeem">Tukar Koin</button>
+                    </div>
+
+                    <!-- Kartu Penukaran 4 -->
+                    <div class="payout-card">
+                        <div class="payout-badge" style="background-color: #0056a3;">Transfer Bank</div>
+                        <h4>Tunai Rp 100.000</h4>
+                        <p class="payout-cost">Biaya: 10.000 Koin</p>
+                        <button class="btn-redeem">Tukar Koin</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 TrashToCoin -  Project PKN . All Rights Reserved.</p>
+    </footer>
+
+    <!-- SCRIPT NAVBAR & FITUR INTERAKTIF KALKULATOR -->
+    <script>
+        // Load Navbar
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                
+                const currentPage = window.location.pathname.split("/").pop() || "index.html";
+                const navLinks = document.querySelectorAll('.nav-links a');
+                navLinks.forEach(link => {
+                    if(link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                    }
+                });
+
+                const hamburger = document.getElementById('hamburger-btn');
+                const navMenu = document.getElementById('nav-menu');
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            });
+
+        // LOGIKA KALKULATOR INTERAKTIF
+        const wasteSelect = document.getElementById('waste-select');
+        const weightInput = document.getElementById('weight-input');
+        const coinTotal = document.getElementById('coin-total');
+
+        function calculateCoins() {
+            const coinPerKg = parseInt(wasteSelect.value);
+            const weight = parseFloat(weightInput.value) || 0;
+            const total = Math.round(coinPerKg * weight);
+            coinTotal.innerText = total.toLocaleString('id-ID');
+        }
+
+        // Jalankan fungsi setiap kali ada perubahan input
+        wasteSelect.addEventListener('change', calculateCoins);
+        weightInput.addEventListener('input', calculateCoins);
+    </script>
+</body>
+</html>
